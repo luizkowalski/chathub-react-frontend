@@ -1,0 +1,12 @@
+.room-list{
+  background-color: #ddd;
+}
+
+.room-link {
+  padding-top: 4px;
+}
+
+.room-link a {
+  color: #5d5d5d;
+  text-decoration: none;
+}
