@@ -1,9 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import githubLogo from './github-octocat.svg';
-import './App.css';
 import RaisedButton from 'material-ui/RaisedButton';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import axios from 'axios';
+import { hashHistory } from 'react-router'
+import './App.css';
+
 injectTapEventPlugin();
 
 const App = React.createClass({
@@ -12,9 +14,10 @@ const App = React.createClass({
     return { loggedIn: logged };
   },
 
-  doLogout(){
-    localStorage.removeItem('logged');
-    this.setState({loggedIn: false});
+  goToDashboard(){
+    hashHistory.push('/dashboard');
+    // localStorage.removeItem('logged');
+    // this.setState({loggedIn: false});
   },
 
   doLogin(){
@@ -29,8 +32,22 @@ const App = React.createClass({
       var user = result.user;
       console.log(token);
       console.log(user);
-      localStorage.setItem('logged', true);
-      component.setState({loggedIn: true});
+
+      axios({
+        method: 'post',
+        url: 'http://127.0.0.1:8080/auth/github?token='+token,
+      })
+      .then(function (response) {
+        localStorage.setItem('logged', true);
+        localStorage.setItem('user', JSON.stringify(response.data));
+
+        component.setState({loggedIn: true});
+        component.props.history.push('/dashboard');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
     }).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -50,7 +67,7 @@ const App = React.createClass({
         </p>
 
         { this.state.loggedIn ? (
-          <RaisedButton onClick={this.doLogout} label="Logout"/>
+          <RaisedButton onClick={this.goToDashboard} label="Dashboard"/>
         ) : (
           <RaisedButton onClick={this.doLogin} label="Sign-in"/>
         )}
