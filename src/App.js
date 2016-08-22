@@ -1,23 +1,21 @@
 import React from 'react';
-import githubLogo from './github-octocat.svg';
-import RaisedButton from 'material-ui/RaisedButton';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import Dashboard from './components/Dashboard'
+import Login from './components/Login'
+import Navbar from './components/Navbar'
 import axios from 'axios';
-import { hashHistory } from 'react-router'
-import './App.css';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
 
 const App = React.createClass({
   getInitialState(){
-    var logged = localStorage.getItem('logged') || false;
+    var logged = Boolean(localStorage.getItem('logged') || false);
     return { loggedIn: logged };
   },
 
-  goToDashboard(){
-    hashHistory.push('/dashboard');
-    // localStorage.removeItem('logged');
-    // this.setState({loggedIn: false});
+  doLogout(){
+    localStorage.removeItem('logged');
+    this.setState({loggedIn: false});
   },
 
   doLogin(){
@@ -26,13 +24,7 @@ const App = React.createClass({
     provider.addScope('user:email');
     provider.addScope('repo');
     firebase.auth().signInWithPopup(provider).then(function(result) {
-      // This gives you a GitHub Access Token. You can use it to access the GitHub API.
       var token = result.credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      console.log(token);
-      console.log(user);
-
       axios({
         method: 'post',
         url: 'http://127.0.0.1:8080/auth/github?token='+token,
@@ -42,7 +34,6 @@ const App = React.createClass({
         localStorage.setItem('user', JSON.stringify(response.data));
 
         component.setState({loggedIn: true});
-        component.props.history.push('/dashboard');
       })
       .catch(function (error) {
         console.log(error);
@@ -55,22 +46,20 @@ const App = React.createClass({
     });
   },
 
-  render() {
+  render: function() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={githubLogo} className="App-logo" alt="logo" />
-          <h2>Chathub</h2>
+      <div>
+        <Navbar logged={this.state.loggedIn} logout={this.doLogout}/>
+        <div className="container">
+          { this.state.loggedIn ?
+            (
+              <Dashboard />
+            ) :
+            (
+              <Login login={this.doLogin}/>
+            )
+          }
         </div>
-        <p className="App-intro">
-          To get started, login with your Github account
-        </p>
-
-        { this.state.loggedIn ? (
-          <RaisedButton onClick={this.goToDashboard} label="Dashboard"/>
-        ) : (
-          <RaisedButton onClick={this.doLogin} label="Sign-in"/>
-        )}
       </div>
     );
   }

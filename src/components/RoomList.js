@@ -16,14 +16,14 @@ var RoomList = React.createClass({
         <li className="room-link" key={room.id}>
           <a href="javascript:void(0)" onClick={() => comp.renderComponent(room.content)}>#{room.content.fullName}</a>
         </li>);
-    });
-    return (
-      <div className="room-list">
-        <ul className="list-unstyled">
-          { roomList }
-        </ul>
-      </div>
-    );
-  }
-});
-export default RoomList;
+      });
+      return (
+        <div className="room-list">
+          <ul className="list-unstyled">
+            { roomList }
+          </ul>
+        </div>
+      );
+    }
+  });
+  export default RoomList;
