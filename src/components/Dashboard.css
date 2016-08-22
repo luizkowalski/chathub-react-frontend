@@ -1,0 +1,18 @@
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+div .container {
+  margin: 0px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.panel {
+  border-radius: 0;
+  margin-left: -1px;
+  margin-top: -1px;
+}

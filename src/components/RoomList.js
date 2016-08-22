@@ -2,6 +2,10 @@ import React from 'react';
 import './RoomList.css';
 import ReactDOM from 'react-dom';
 import Room from './Room';
+import Avatar from 'material-ui/Avatar';
+import {List, ListItem} from 'material-ui/List';
+import Subheader from 'material-ui/Subheader';
+import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
 
 var RoomList = React.createClass({
   renderComponent(room){
@@ -13,15 +17,18 @@ var RoomList = React.createClass({
     var comp = this;
     var roomList = this.props.rooms.map(function(room) {
       return (
-        <li className="room-link" key={room.id}>
-          <a href="javascript:void(0)" onClick={() => comp.renderComponent(room.content)}>#{room.content.fullName}</a>
-        </li>);
-      });
+        <ListItem key={room.id}
+          primaryText={room.content.fullName}
+          rightIcon={<CommunicationChatBubble />}
+          onClick={() => comp.renderComponent(room.content)}
+          />
+      )});
       return (
         <div className="room-list">
-          <ul className="list-unstyled">
+          <List>
+            <Subheader>Your rooms</Subheader>
             { roomList }
-          </ul>
+          </List>
         </div>
       );
     }

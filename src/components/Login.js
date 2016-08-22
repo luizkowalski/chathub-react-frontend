@@ -1,5 +1,6 @@
 import React from 'react';
 import githubLogo from '../github-octocat.svg';
+import RaisedButton from 'material-ui/RaisedButton';
 import '../App.css';
 
 const Login = React.createClass({
@@ -19,9 +20,7 @@ const Login = React.createClass({
         <p className="App-intro">
           To get started, login with your Github account
         </p>
-        <a href="#" onClick={this.props.login} label="">
-          Signin
-        </a>
+        <RaisedButton onClick={this.props.login} label="Login" />
       </div>
     );
   }

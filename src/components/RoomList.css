@@ -1,12 +1,5 @@
-.room-list{
-  background-color: #ddd;
-}
-
-.room-link {
-  padding-top: 4px;
-}
-
-.room-link a {
-  color: #5d5d5d;
-  text-decoration: none;
+.room-list {
+  border: 1px solid #ddd;
+  display: table;
+  margin-top: -1px;
 }
