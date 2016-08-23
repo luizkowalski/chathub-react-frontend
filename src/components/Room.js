@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactFireMixin from 'reactfire';
 import Message from './Message'
+import './Room.css'
 
 var Room = React.createClass({
   mixins: [ReactFireMixin],
@@ -9,7 +10,7 @@ var Room = React.createClass({
     return {messages: []};
   },
   componentWillMount(){
-
+    // Firebase stuff
   },
   render: function() {
     var messages = this.state.messages.map(function(message) {
@@ -19,7 +20,7 @@ var Room = React.createClass({
       );
     });
     return (
-      <div>
+      <div className="room-div">
         <div className="panel panel-default">
           <div className="panel-heading">
             <h2 className="panel-title">
