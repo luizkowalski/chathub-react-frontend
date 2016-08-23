@@ -1,17 +1,19 @@
 import React from 'react';
+import './Message.css';
 
 var Message = React.createClass({
   render: function () {
+    var message = JSON.parse(this.props.message);
     return (
-      <li key={ this.props.message.uid }>
+      <li>
         <div className="avatar">
-          <img src={ this.props.message.avatar } className="img-circle"/>
+          <img src={ message.sender.avatar } className="img-circle"/>
         </div>
         <div className="messages">
-          <p>{ this.props.message.content }</p>
-          <span className="date">{ "@"+this.props.message.user + " • " }</span>
-          <span className="date timeago" title={ this.props.message.created_at }>
-            { this.props.message.created_at }
+          <p>{ message.content }</p>
+          <span className="date">{ "@"+message.sender.login + " • " }</span>
+          <span className="date timeago" title={ message.created_at }>
+            { message.created_at }
           </span>
         </div>
       </li>

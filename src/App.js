@@ -4,6 +4,7 @@ import Login from './components/Login'
 import Navbar from './components/Navbar'
 import axios from 'axios';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import './App.css'
 
 injectTapEventPlugin();
 

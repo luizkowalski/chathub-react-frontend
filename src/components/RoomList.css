@@ -1,5 +1,6 @@
-.room-list {
+.room-list, #chat-room {
   border: 1px solid #ddd;
-  display: table;
-  margin-top: -1px;
+  height: 100vh;
+  overflow: scroll;
+  max-height: 100%;
 }

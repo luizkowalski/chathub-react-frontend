@@ -1,10 +1,11 @@
 import React from 'react';
+import './Navbar.css'
 
 const Navbar = React.createClass({
 
   render(){
     return(
-      <nav className="navbar navbar-default">
+      <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
             {

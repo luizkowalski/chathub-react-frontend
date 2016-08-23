@@ -32,10 +32,10 @@ var Dashboard = React.createClass({
     return(
       <div className="app">
         <div className="row no-gutter">
-          <div className="col-xs-6 col-md-4">
+          <div className="col-md-4">
             <RoomList rooms={this.state.rooms} />
           </div>
-          <div className="col-xs-12 col-md-8" id="room-placeholder">
+          <div className="col-md-8" id="room-placeholder">
           </div>
           </div>
       </div>
