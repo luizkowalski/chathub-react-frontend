@@ -27,30 +27,19 @@ var Room = React.createClass({
       );
     });
     return (
-      <div className="row">
-          <div className="col-md-5" id="chat-body">
-              <div className="panel panel-primary">
-                  <div className="panel-heading">
-                      <span className="glyphicon glyphicon-comment"></span> Chat
-                  </div>
-                  <div className="panel-body">
-                      <ul className="chat">
-                          { messages }
-                      </ul>
-                  </div>
-                  <div className="panel-footer">
-                      <div className="input-group">
-                          <input id="btn-input" type="text" className="form-control input-sm" placeholder="Type your message here..." />
-                          <span className="input-group-btn">
-                              <button className="btn btn-warning btn-sm" id="btn-chat">
-                                  Send</button>
-                          </span>
-                      </div>
-                  </div>
-              </div>
+      <div className="chat-message">
+        <ul className="chat">
+          { messages }
+        </ul>
+        <div className="chat-box bg-white">
+          <div className="input-group">
+            <input className="form-control border no-shadow no-rounded" placeholder="Type your message here" />
+            <span className="input-group-btn">
+              <button className="btn btn-success no-rounded" type="button">Send</button>
+            </span>
           </div>
+        </div>
       </div>
-
     );
   }
 });

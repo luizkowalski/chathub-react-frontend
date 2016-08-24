@@ -1,5 +1,6 @@
 import React from 'react';
-import RoomList from './RoomList';
+import ReactDOM from 'react-dom';
+import Room from './Room';
 import $ from 'jquery';
 import './Dashboard.css'
 
@@ -28,19 +29,40 @@ var Dashboard = React.createClass({
     })
   },
 
+  renderRoom(room){
+    var node = document.getElementById('room-placeholder');
+    ReactDOM.unmountComponentAtNode(node);
+    ReactDOM.render((<Room room={room}/>), node);
+  },
   render(){
-    return(
-      <div className="app">
-        <div className="row no-gutter">
-          <div className="col-md-4">
-            <RoomList rooms={this.state.rooms} />
-          </div>
-          <div className="col-md-8" id="room-placeholder">
-          </div>
-          </div>
-      </div>
-    );
-  }
-});
+    var comp = this;
+    var rooms = this.state.rooms.map(function(room) {
+      return (
+        <li className="bounceInDown" key={room.id}>
+          <a href="#" className="clearfix" onClick={() => comp.renderRoom(room.content)}>
+            <img src={ room.organization != null ? room.organization.avatar : '' } alt="" className="img-circle" />
+            <div className="friend-name">
+              <strong>{room.content.name}</strong>
+            </div>
+          </a>
+        </li>
+      )});
+      return(
+        <div className="container">
+          <div className="row no-gutter">
 
-export default Dashboard;
+            <div className="col-md-4 bg-white scroll">
+              <ul className="friend-list">
+                { rooms }
+              </ul>
+            </div>
+            <div className="col-md-8 bg-white scroll" id="room-placeholder">
+
+            </div>
+          </div>
+        </div>
+      );
+    }
+  });
+
+  export default Dashboard;
