@@ -40,7 +40,7 @@ var Dashboard = React.createClass({
       return (
         <li className="bounceInDown" key={room.id}>
           <a href="#" className="clearfix" onClick={() => comp.renderRoom(room.content)}>
-            <img src={ room.organization != null ? room.organization.avatar : '' } alt="" className="img-circle" />
+            <img src={ room.content.organization != null ? room.content.organization.avatar : 'https://robohash.org/' + room.content.uid } alt="" className="img-circle" />
             <div className="friend-name">
               <strong>{room.content.name}</strong>
             </div>
