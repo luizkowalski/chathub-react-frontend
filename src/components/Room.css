@@ -1,4 +1,9 @@
-.panel{
+.panel .panel-primary{
   height: 100vh;
   min-height: 100%;
+  border-radius: 0xp;
+}
+
+#chat-body{
+  width: 100%;
 }
