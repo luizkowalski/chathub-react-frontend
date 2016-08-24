@@ -31,9 +31,9 @@ var Room = React.createClass({
         <ul className="chat">
           { messages }
         </ul>
-        <div className="chat-box bg-white">
-          <div className="input-group">
-            <input className="form-control border no-shadow no-rounded" placeholder="Type your message here" />
+        <div>
+          <div className="chat-box input-group">
+            <input className="form-control border no-shadow no-rounded" placeholder={ 'Message '+this.props.room.fullName} />
             <span className="input-group-btn">
               <button className="btn btn-success no-rounded" type="button">Send</button>
             </span>

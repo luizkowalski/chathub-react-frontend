@@ -42,7 +42,7 @@ var Dashboard = React.createClass({
           <a href="#" className="clearfix" onClick={() => comp.renderRoom(room.content)}>
             <img src={ room.content.organization != null ? room.content.organization.avatar : 'https://robohash.org/' + room.content.uid } alt="" className="img-circle" />
             <div className="friend-name">
-              <strong>{room.content.name}</strong>
+              <strong>{room.content.fullName}</strong>
             </div>
           </a>
         </li>
@@ -56,7 +56,7 @@ var Dashboard = React.createClass({
                 { rooms }
               </ul>
             </div>
-            <div className="col-md-8 bg-white scroll" id="room-placeholder">
+            <div className="col-md-8 bg-gray scroll" id="room-placeholder">
 
             </div>
           </div>

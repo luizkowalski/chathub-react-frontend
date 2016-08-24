@@ -1,14 +1,17 @@
 .chat-message {
   padding: 2px 2px 50px;
+  height: 100vh;
+  min-height: 100%;
 }
 
 .chat {
-    list-style: none;
-    margin: 0;
+  list-style: none;
+  margin-left: -30px;
+  background-color: #f9f9f9;
 }
 
 .chat-message{
-    background: #f9f9f9;
+  background: #f9f9f9;
 }
 
 .chat li img {
@@ -35,7 +38,7 @@ img {
 
 .chat li .chat-body {
   position: relative;
-  font-size: 11px;
+  font-size: 13px;
   padding: 10px;
   border: 1px solid #f1f5fc;
   box-shadow: 0 1px 1px rgba(0,0,0,.05);
@@ -98,17 +101,9 @@ img {
 }
 
 .chat-box {
-  position: fixed;
-  bottom: 0;
-  left: 444px;
-  right: 0;
   padding: 15px;
-  border-top: 1px solid #eee;
-  transition: all .5s ease;
-  -webkit-transition: all .5s ease;
-  -moz-transition: all .5s ease;
-  -ms-transition: all .5s ease;
-  -o-transition: all .5s ease;
+  padding-top: 20px;
+  background-color: #f9f9f9;
 }
 
 .primary-font {
