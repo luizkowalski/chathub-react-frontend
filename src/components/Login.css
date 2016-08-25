@@ -14,6 +14,28 @@
   color: white;
 }
 
+.fullscreen_bg {
+  position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-size: cover;
+   background-position: 50% 50%;
+   background-image: url('http://cleancanvas.herokuapp.com/img/backgrounds/color-splash.jpg');
+   background-repeat:repeat;
+}
+
+.form-signin-heading {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+}
+
+.fa-6{
+  font-size: 2em;
+}
+
 .App-intro {
   font-size: large;
 }

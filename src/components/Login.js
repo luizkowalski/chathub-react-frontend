@@ -1,27 +1,30 @@
 import React from 'react';
 import githubLogo from '../github-octocat.svg';
 import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
 import './Login.css';
 
 const Login = React.createClass({
   render() {
     return (
-      <div className="row">
-        <div className="col-lg-12">
-        <div className="App">
-          <div className="App-header">
-            <img src={githubLogo} className="App-logo" alt="logo" />
-            <h2>Chathub</h2>
+      <div id="fullscreen_bg" className="fullscreen_bg">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="App">
+              <h1 className="form-signin-heading text-muted">
+                <img src={githubLogo} /> Chathub
+              </h1>
+              <RaisedButton onClick={this.props.login} label="Login with Github"
+                icon={<i className="fa fa-github-square fa-6" aria-hidden="true"></i>}
+                labelPosition="after" />
+            </div>
           </div>
-          <p className="App-intro">
-            To get started, login with your Github account
-          </p>
-          <RaisedButton onClick={this.props.login} label="Login" />
-        </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 });
 
 export default Login;
