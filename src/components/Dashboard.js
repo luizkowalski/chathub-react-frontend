@@ -32,7 +32,7 @@ var Dashboard = React.createClass({
   renderRoom(room){
     var node = document.getElementById('room-placeholder');
     ReactDOM.unmountComponentAtNode(node);
-    ReactDOM.render((<Room room={room}/>), node);
+    ReactDOM.render((<Room room={room} user={this.state.user}/>), node);
   },
   render(){
     var comp = this;
@@ -57,7 +57,6 @@ var Dashboard = React.createClass({
               </ul>
             </div>
             <div className="col-md-8 bg-gray scroll" id="room-placeholder">
-
             </div>
           </div>
         </div>

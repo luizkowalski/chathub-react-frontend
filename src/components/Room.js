@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactFireMixin from 'reactfire';
 import Message from './Message'
+import $ from 'jquery';
 import './Room.css'
 
 var Room = React.createClass({
@@ -13,11 +14,32 @@ var Room = React.createClass({
   },
   componentWillMount(){
     var ref = firebase.database().ref("messages/"+this.props.room.uid);
-    this.bindAsArray(ref, "messages");
+    this.bindAsArray(ref.orderByKey(), "messages");
   },
   componentDidMount(){
+    this.scrollRoom();
+  },
+  scrollRoom(){
     var elem = document.getElementById('chat-room');
     elem.scrollTop = elem.scrollHeight;
+  },
+  sendMessage: function (e){
+    e.preventDefault();
+    var content = this.refs.content.value;
+    var self = this;
+    $.post({
+      url: 'http://127.0.0.1:8080/v1/rooms/'+this.props.room.uid+"/messages/new",
+      headers: {
+        'Auth-Token': this.props.user.backendAccessToken
+      },
+      contentType:"application/json; charset=utf-8",
+      data: JSON.stringify({content: content}),
+      success: function(data){
+        self.refs.content.value = '';
+        var elem = document.getElementById('chat-room');
+        elem.scrollTop = elem.scrollHeight;
+      }
+    });
   },
   render: function() {
     var messages = this.state.messages.map(function(message) {
@@ -28,16 +50,18 @@ var Room = React.createClass({
     });
     return (
       <div className="chat-message">
-        <ul className="chat">
+        <ul className="chat" id="chat-room">
           { messages }
         </ul>
         <div>
-          <div className="chat-box input-group">
-            <input className="form-control border no-shadow no-rounded" placeholder={ 'Message '+this.props.room.fullName} />
-            <span className="input-group-btn">
-              <button className="btn btn-success no-rounded" type="button">Send</button>
-            </span>
-          </div>
+          <form className="commentForm" onSubmit={this.sendMessage}>
+            <div className="chat-box input-group">
+              <input ref="content" className="form-control border no-shadow no-rounded" placeholder={ 'Message '+this.props.room.fullName} />
+              <span className="input-group-btn">
+                <button className="btn btn-success no-rounded" type="submit">Send</button>
+              </span>
+            </div>
+          </form>
         </div>
       </div>
     );

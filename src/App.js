@@ -16,6 +16,7 @@ const App = React.createClass({
 
   doLogout(){
     localStorage.removeItem('logged');
+    localStorage.removeItem('user');
     this.setState({loggedIn: false});
   },
 
