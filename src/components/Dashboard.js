@@ -37,6 +37,7 @@ var Dashboard = React.createClass({
   render(){
     var comp = this;
     var rooms = this.state.rooms.map(function(room) {
+      console.log(room.content);
       return (
         <li className="bounceInDown" key={room.id}>
           <a href="#" className="clearfix" onClick={() => comp.renderRoom(room.content)}>
@@ -48,7 +49,7 @@ var Dashboard = React.createClass({
         </li>
       )});
       return(
-        <div className="container">
+        <div className="none">
           <div className="row no-gutter">
 
             <div className="col-md-4 bg-white scroll">

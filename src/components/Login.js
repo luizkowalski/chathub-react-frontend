@@ -12,7 +12,7 @@ const Login = React.createClass({
         <div className="row">
           <div className="col-lg-12">
             <div className="App">
-              <h1 className="form-signin-heading text-muted">
+              <h1 className="form-signin-heading">
                 <img src={githubLogo} /> Chathub
               </h1>
               <RaisedButton onClick={this.props.login} label="Login with Github"
