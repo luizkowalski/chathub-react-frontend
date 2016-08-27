@@ -49,7 +49,7 @@ var Room = React.createClass({
       );
     });
     return (
-      <div className="chat-message">
+      <div>
         <ul className="chat" id="chat-room">
           { messages }
         </ul>

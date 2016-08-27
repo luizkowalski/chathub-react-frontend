@@ -1,9 +1,18 @@
-.no-gutter {
+/*.no-gutter {
     padding-right:0;
     padding-left:0;
 
     margin-left: -30px !important;
     margin-right: -30px !important;
+}*/
+
+body{
+  background: url('./stardust_@2X.png') repeat-x !important;
+}
+
+.dashboard{
+  margin-top: 8px;
+  border-radius: 4px !important;
 }
 
 .container {
@@ -46,6 +55,7 @@
  .friend-list li a {
   position: relative;
   display: block;
+  text-decoration: none;
   padding: 10px;
   transition: all .2s ease;
   -webkit-transition: all .2s ease;
@@ -56,11 +66,13 @@
 
 .friend-list li.active a {
   background-color: #f1f5fc;
+  text-decoration: none;
 }
 
 .friend-list li a .friend-name,
 .friend-list li a .friend-name:hover {
   color: #777;
+  text-decoration: none;
 }
 
 .friend-list li a .last-message {

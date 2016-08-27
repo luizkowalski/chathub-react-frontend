@@ -1,4 +1,5 @@
 import React from 'react';
+import TimeAgo from 'react-timeago'
 
 var Message = React.createClass({
   render: function () {
@@ -11,7 +12,7 @@ var Message = React.createClass({
         <div className="chat-body clearfix">
           <div className="header">
             <strong className="primary-font">{message.sender.name}</strong>
-            <small className="pull-right text-muted"><i className="fa fa-clock-o"></i> 12 mins ago</small>
+            <small className="pull-right text-muted"><i className="fa fa-clock-o"></i> <TimeAgo date={message.createdAt} /></small>
           </div>
           <p>
             {message.content}
