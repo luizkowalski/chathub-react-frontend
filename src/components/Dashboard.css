@@ -7,25 +7,17 @@
 }*/
 
 body{
-  background: url('./stardust_@2X.png') repeat-x !important;
+  background: url('./stardust_@2X.png');
+  background-repeat: repeat;
 }
 
 .dashboard{
-  margin-top: 8px;
-  border-radius: 4px !important;
-}
-
-.container {
-  width: 97% !important;
-}
-
-.padding-sm{
-    margin-left: 0px;
+  margin-top: 15px;
 }
 
 .scroll{
   overflow: scroll;
-  height: 90vh;
+  height: 95vh;
   max-height: 100%;
 }
 
@@ -36,66 +28,6 @@ body{
   background-color: #f9f9f9;
 }
 
-.friend-list {
-  list-style: none;
-  margin-left: -40px;
-}
-
-.friend-list li {
-  border-bottom: 1px solid #eee;
-}
-
-.friend-list li a img {
-  float: left;
-  width: 45px;
-  height: 45px;
-  margin-right: 0px;
-}
-
- .friend-list li a {
-  position: relative;
-  display: block;
-  text-decoration: none;
-  padding: 10px;
-  transition: all .2s ease;
-  -webkit-transition: all .2s ease;
-  -moz-transition: all .2s ease;
-  -ms-transition: all .2s ease;
-  -o-transition: all .2s ease;
-}
-
-.friend-list li.active a {
-  background-color: #f1f5fc;
-  text-decoration: none;
-}
-
-.friend-list li a .friend-name,
-.friend-list li a .friend-name:hover {
-  color: #777;
-  text-decoration: none;
-}
-
-.friend-list li a .last-message {
-  width: 65%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.friend-list li a .time {
-  position: absolute;
-  top: 10px;
-  right: 8px;
-}
-
-small, .small {
-  font-size: 85%;
-}
-
-.friend-list li a .chat-alert {
-  position: absolute;
-  right: 8px;
-  top: 27px;
-  font-size: 10px;
-  padding: 3px 5px;
+.room-name{
+  word-wrap: break-word;
 }

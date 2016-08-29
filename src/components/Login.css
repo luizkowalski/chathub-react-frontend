@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-top: 65px;
 }
 
 .App-logo {
@@ -16,14 +17,14 @@
 
 .fullscreen_bg {
   position: fixed;
-   top: 0;
-   right: 0;
-   bottom: 0;
-   left: 0;
-   background-size: cover;
-   background-position: 50% 50%;
-   background-image: url('http://cleancanvas.herokuapp.com/img/backgrounds/color-splash.jpg');
-   background-repeat:repeat;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-image: url('http://cleancanvas.herokuapp.com/img/backgrounds/color-splash.jpg');
+  background-repeat:repeat;
 }
 
 .form-signin-heading {

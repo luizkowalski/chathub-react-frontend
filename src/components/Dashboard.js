@@ -38,25 +38,29 @@ var Dashboard = React.createClass({
     var comp = this;
     var rooms = this.state.rooms.map(function(room) {
       return (
-        <li className="bounceInDown" key={room.id}>
-          <a href="#" className="clearfix" onClick={() => comp.renderRoom(room.content)}>
+        <a className="panel-block is-active" href="#"  key={room.id} onClick={() => comp.renderRoom(room.content)}>
+          <span className="panel-icon">
             <img src={ room.content.organization != null ? room.content.organization.avatar : 'https://robohash.org/' + room.content.uid } alt="" className="img-circle" />
-            <div className="friend-name">
-              <strong>{room.content.fullName}</strong>
-            </div>
-          </a>
-        </li>
+          </span>
+          <strong className="room-name">{room.content.fullName}</strong>
+        </a>
       )});
       return(
         <div className="dashboard">
-          <div className="row no-gutter">
-
-            <div className="col-md-4 bg-white scroll">
-              <ul className="friend-list">
+          <div className="columns is-fullwidth">
+            <div className="column bg-white is-4 scroll">
+              <nav className="panel">
+                <p className="panel-heading">
+                  Rooms
+                </p>
+                <p className="panel-tabs">
+                  <a className="is-active" href="#">All</a>
+                </p>
                 { rooms }
-              </ul>
+              </nav>
             </div>
-            <div className="col-md-8 bg-gray scroll" id="room-placeholder">
+
+            <div className="column bg-gray scroll" id="room-placeholder">
             </div>
           </div>
         </div>

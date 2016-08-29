@@ -55,12 +55,9 @@ var Room = React.createClass({
         </ul>
         <div>
           <form className="commentForm" onSubmit={this.sendMessage}>
-            <div className="chat-box input-group">
-              <input ref="content" className="form-control border no-shadow no-rounded" placeholder={ 'Message '+this.props.room.fullName} />
-              <span className="input-group-btn">
-                <button className="btn btn-success no-rounded" type="submit">Send</button>
-              </span>
-            </div>
+            <p className="control has-icon has-icon-right">
+            <input className="input is-success" type="text" placeholder={ 'Message '+this.props.room.fullName} ref="content" />
+          </p>
           </form>
         </div>
       </div>
