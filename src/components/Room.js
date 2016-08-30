@@ -14,7 +14,7 @@ var Room = React.createClass({
   },
   componentWillMount(){
     var ref = firebase.database().ref("messages/"+this.props.room.uid);
-    this.bindAsArray(ref.orderByChild('id'), "messages");
+    this.bindAsArray(ref.orderByChild('createdAt'), "messages");
   },
   componentDidMount(){
     this.scrollRoom();
