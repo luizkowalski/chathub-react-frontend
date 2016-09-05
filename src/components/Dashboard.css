@@ -11,21 +11,23 @@ body{
   background-repeat: repeat;
 }
 
+.container{
+  position: inherit;
+}
+
+.sidebar-class {
+  top: 54px !important;
+}
+
 .dashboard{
-  margin-top: 15px;
+  margin-top: 50px;
+  padding: 10px;
 }
 
 .scroll{
   overflow: scroll;
   height: 95vh;
   max-height: 100%;
-}
-
-.bg-white {
-  background-color: #fff;
-}
-.bg-gray {
-  background-color: #f9f9f9;
 }
 
 .room-name{

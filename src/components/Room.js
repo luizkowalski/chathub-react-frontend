@@ -3,6 +3,7 @@ import ReactFireMixin from 'reactfire';
 import Message from './Message'
 import $ from 'jquery';
 import './Room.css'
+import firebase from 'firebase';
 
 var Room = React.createClass({
   mixins: [ReactFireMixin],

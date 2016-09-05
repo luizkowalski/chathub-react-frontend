@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Room from './Room';
 import $ from 'jquery';
 import './Dashboard.css'
+import Sidebar from 'react-sidebar';
 
 var Dashboard = React.createClass({
   getInitialState(){
@@ -46,24 +47,21 @@ var Dashboard = React.createClass({
         </a>
       )});
       return(
-        <div className="dashboard">
-          <div className="columns is-fullwidth">
-            <div className="column bg-white is-4 scroll">
-              <nav className="panel">
-                <p className="panel-heading">
-                  Rooms
-                </p>
-                <p className="panel-tabs">
-                  <a className="is-active" href="#">All</a>
-                </p>
-                { rooms }
-              </nav>
-            </div>
-
-            <div className="column bg-gray scroll" id="room-placeholder">
-            </div>
+        <div>
+          <Sidebar sidebar={rooms}
+           docked={true}
+           open={true}
+           shadow={true}
+           sidebarClassName={'sidebar-class'}
+           pullRight={false}>
+             <div className="dashboard">
+               <div className="columns is-fullwidth">
+                 <div className="column bg-gray scroll" id="room-placeholder">
+                 </div>
+               </div>
+             </div>
+          </Sidebar>
           </div>
-        </div>
       );
     }
   });

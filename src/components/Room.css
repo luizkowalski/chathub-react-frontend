@@ -11,7 +11,7 @@
   background: #f9f9f9;
 }
 
-.chat li img {
+.chat li .avatar {
   width: 45px;
   height: 45px;
   border-radius: 50em;
@@ -19,7 +19,7 @@
   -webkit-border-radius: 50em;
 }
 
-img {
+.avatar {
   max-width: 100%;
 }
 
@@ -28,7 +28,7 @@ img {
 }
 
 .chat li.left .chat-body {
-  margin-left: 70px;
+  margin-left: 60px;
   background-color: #fff;
   word-wrap: break-word;
 }

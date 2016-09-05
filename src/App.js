@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react'
 import Dashboard from './components/Dashboard'
 import Login from './components/Login'
 import Navbar from './components/Navbar'
 import axios from 'axios';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import firebase from 'firebase';
+import FIREBASE_CONFIG from './components/firebase_config';
 import './App.css'
 
 injectTapEventPlugin();
 
-const App = React.createClass({
-  getInitialState(){
+class App extends Component {
+  constructor(props) {
+    super(props);
     var logged = Boolean(localStorage.getItem('logged') || false);
-    return { loggedIn: logged };
-  },
+    firebase.initializeApp(FIREBASE_CONFIG)
+    this.state = {
+      loggedIn: logged
+    };
+
+    this.doLoginHandler = () => this.doLogin()
+    this.doLogoutHandler = () => this.doLogout()
+  }
 
   doLogout(){
     localStorage.removeItem('logged');
     localStorage.removeItem('user');
     this.setState({loggedIn: false});
-  },
+  }
 
   doLogin(){
     var component = this;
@@ -46,25 +55,25 @@ const App = React.createClass({
       var errorMessage = error.message;
       console.log(errorCode+ " - "+errorMessage)
     });
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <div>
-        <Navbar logged={this.state.loggedIn} logout={this.doLogout}/>
+        <Navbar logged={this.state.loggedIn} logout={this.doLogoutHandler}/>
         <div className="container">
           { this.state.loggedIn ?
             (
               <Dashboard />
             ) :
             (
-              <Login login={this.doLogin}/>
+              <Login login={this.doLoginHandler}/>
             )
           }
         </div>
       </div>
     );
   }
-});
+};
 
 export default App;
