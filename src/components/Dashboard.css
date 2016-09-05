@@ -6,28 +6,24 @@
     margin-right: -30px !important;
 }*/
 
-body{
-  background: url('./stardust_@2X.png');
-  background-repeat: repeat;
+.material-img-header{
+  width: 8%;
 }
-
 .container{
   position: inherit;
 }
 
 .sidebar-class {
-  top: 54px !important;
 }
 
 .dashboard{
-  margin-top: 50px;
   padding: 10px;
 }
 
 .scroll{
   overflow: scroll;
   height: 95vh;
-  max-height: 100%;
+  max-height: 90%;
 }
 
 .room-name{

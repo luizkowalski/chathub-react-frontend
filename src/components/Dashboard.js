@@ -4,6 +4,7 @@ import Room from './Room';
 import $ from 'jquery';
 import './Dashboard.css'
 import Sidebar from 'react-sidebar';
+import MaterialTitlePanel from './MaterialTitlePane';
 
 var Dashboard = React.createClass({
   getInitialState(){
@@ -46,20 +47,30 @@ var Dashboard = React.createClass({
           <strong className="room-name">{room.content.fullName}</strong>
         </a>
       )});
+      var sidebarContent =
+        <MaterialTitlePanel title="Your rooms">
+          {rooms}
+        </MaterialTitlePanel>
+
       return(
         <div>
-          <Sidebar sidebar={rooms}
+          <Sidebar sidebar={sidebarContent}
            docked={true}
            open={true}
            shadow={true}
            sidebarClassName={'sidebar-class'}
            pullRight={false}>
+           <MaterialTitlePanel title={"Chat"}
+             button={true}
+             buttonLabel={"Quit"}
+             buttonAction={this.props.logoutFunction}>
              <div className="dashboard">
                <div className="columns is-fullwidth">
                  <div className="column bg-gray scroll" id="room-placeholder">
                  </div>
                </div>
              </div>
+           </MaterialTitlePanel>
           </Sidebar>
           </div>
       );

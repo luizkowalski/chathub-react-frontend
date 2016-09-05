@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import Dashboard from './components/Dashboard'
 import Login from './components/Login'
-import Navbar from './components/Navbar'
 import axios from 'axios';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import firebase from 'firebase';
-import FIREBASE_CONFIG from './components/firebase_config';
+import FIREBASE_CONFIG from './components/consts/firebase_config';
 import './App.css'
 
 injectTapEventPlugin();
@@ -60,11 +59,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar logged={this.state.loggedIn} logout={this.doLogoutHandler}/>
         <div className="container">
           { this.state.loggedIn ?
             (
-              <Dashboard />
+              <Dashboard logoutFunction={this.doLogoutHandler}/>
             ) :
             (
               <Login login={this.doLoginHandler}/>
