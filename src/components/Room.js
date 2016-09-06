@@ -57,7 +57,7 @@ var Room = React.createClass({
         <div>
           <form className="commentForm" onSubmit={this.sendMessage}>
             <p className="control has-icon has-icon-right">
-            <input className="input is-success" type="text" placeholder={ 'Message '+this.props.room.fullName} ref="content" />
+            <input className="input is-primary" type="text" placeholder={ 'Message '+this.props.room.fullName} ref="content" />
           </p>
           </form>
         </div>
