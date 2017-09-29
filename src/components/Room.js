@@ -31,7 +31,7 @@ var Room = React.createClass({
     $.post({
       url: 'http://127.0.0.1:8080/v1/rooms/'+this.props.room.uid+"/messages/new",
       headers: {
-        'Auth-Token': this.props.user.backendAccessToken
+        'Authorization': this.props.user.backendAccessToken
       },
       contentType:"application/json; charset=utf-8",
       data: JSON.stringify({content: content}),

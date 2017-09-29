@@ -35,6 +35,7 @@ class App extends Component {
     provider.addScope('repo');
     firebase.auth().signInWithPopup(provider).then(function(result) {
       var token = result.credential.accessToken;
+      console.log('Token: '+token)
       axios({
         method: 'post',
         url: 'http://127.0.0.1:8080/auth/github?token='+token,

@@ -19,7 +19,7 @@ var Dashboard = React.createClass({
     $.get({
       url: 'http://127.0.0.1:8080/v1/rooms',
       headers: {
-        'Auth-Token': self.state.user.backendAccessToken
+        'Authorization': self.state.user.backendAccessToken
       },
       success: function(data){
         var rooms = []
@@ -39,10 +39,11 @@ var Dashboard = React.createClass({
   render(){
     var comp = this;
     var rooms = this.state.rooms.map(function(room) {
+      console.log(room)
       return (
         <a className="panel-block is-active" href="#"  key={room.id} onClick={() => comp.renderRoom(room.content)}>
           <span className="panel-icon">
-            <img src={ room.content.organization != null ? room.content.organization.avatar : 'https://robohash.org/' + room.content.uid } alt="" className="img-circle" />
+            <img src={ room.content.avatar } alt="" className="img-circle" />
           </span>
           <strong className="room-name">{room.content.fullName}</strong>
         </a>
